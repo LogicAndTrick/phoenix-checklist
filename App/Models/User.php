@@ -6,6 +6,7 @@ class User extends Model
     public $columns = array(
         'ID'         => 'ID',
         'Name'       => 'Name',
+        'Email'      => 'Email',
         'OpenID'     => 'OpenID',
         'Cookie'     => 'Cookie'
     );

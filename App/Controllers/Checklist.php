@@ -3,9 +3,23 @@
 class ChecklistController extends Controller
 {
     public $authorise = array(
-        'Index' => false,
+        'Register' => false,
         '*' => true
     );
+
+    public $allow_register = false;
+
+    public function Register()
+    {
+        if (!$this->allow_register || Authentication::IsLoggedIn()) {
+            return $this->RedirectToAction('Index', 'Checklist');
+        }
+        if (Authentication::ValidateRegister()) {
+            Authentication::RegisterUser();
+            return $this->RedirectToAction('Index', 'Checklist');
+        }
+        return $this->View();
+    }
 
     function Index()
     {
