@@ -14,7 +14,7 @@ class Checklist extends Model
     );
     public $primaryKey = 'ID';
     public $many = array(
-        'ChecklistItem' => array('ID' => 'ChecklistID')
+        'ChecklistItem' => array('ID' => 'ChecklistID', ':Order' => 'OrderIndex')
     );
     public $one = array(
         'User' => array('UserID' => 'ID')

@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS ChecklistItems (
     ChecklistID INT NOT NULL,
     Text TEXT NOT NULL,
     IsChecked TINYINT NOT NULL,
+    OrderIndex INTEGER NOT NULL,
     Created DATETIME NOT NULL
 );
 

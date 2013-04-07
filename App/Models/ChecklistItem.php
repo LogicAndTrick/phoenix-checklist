@@ -8,6 +8,7 @@ class ChecklistItem extends Model
         'ChecklistID' => 'ChecklistID',
         'Text' => 'Text',
         'IsChecked' => 'IsChecked',
+        'OrderIndex' => 'OrderIndex',
         'Created' => 'Created'
     );
     public $mappings = array(
@@ -15,11 +16,10 @@ class ChecklistItem extends Model
         'IsChecked' => 'bool'
     );
     public $primaryKey = 'ID';
-    public $many = array(
-        'ChecklistItem' => array('ID' => 'ChecklistID')
-    );
+    public $many = array();
     public $one = array(
-        'User' => array('UserID' => 'ID')
+        'User' => array('UserID' => 'ID'),
+        'Checklist' => array('ChecklistID' => 'ID')
     );
     public $validation = array(
         'ChecklistID' => array(
