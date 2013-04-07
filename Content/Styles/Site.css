@@ -1,3 +1,11 @@
+body {
+    padding-top: 20px;
+}
+
+h2 > .btn {
+    margin-left: 5px;
+}
+
 .checklist li {
     padding-bottom: 10px;
 }

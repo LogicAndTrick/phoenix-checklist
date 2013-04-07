@@ -2,7 +2,11 @@
     <li>{actlink text=Checklists action=Index} <span class="divider">&gt;</span></li>
     <li class="active">{$model->Title}</li>
 </div>
-<h2>{$model->Title}</h2>
+<h2>
+    {$model->Title}
+    {actlink text='<i class="icon-white icon-remove"></i>' action=Delete id=$model->ID html_class='btn btn-danger btn-mini pull-right'}
+    {actlink text='<i class="icon-white icon-pencil"></i>' action=Edit id=$model->ID html_class='btn btn-primary btn-mini pull-right'}
+</h2>
 <ul class="checklist">
     {foreach $model->Find('ChecklistItem') as $item}
         <li>

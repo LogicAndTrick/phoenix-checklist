@@ -71,18 +71,25 @@ class ChecklistController extends Controller
 
     function Edit($id)
     {
+        $model = new Checklist($id);
         if (Post::IsPostBack()) {
-
+            Post::Bind($model, '', array('Title'));
+            if (Validation::Validate($model)) {
+                $model->Save();
+                return $this->RedirectToAction('Details', 'Checklist', $id);
+            }
         }
-        return $this->View();
+        return $this->View($model);
     }
 
     function Delete($id)
     {
+        $model = new Checklist($id);
         if (Post::IsPostBack()) {
-
+            $model->Delete();
+            return $this->RedirectToAction('Index');
         }
-        return $this->View();
+        return $this->View($model);
     }
 
     function CreateItem($id)
